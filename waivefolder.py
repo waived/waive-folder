@@ -38,8 +38,8 @@ def _encrypt(path, _dir_path):
                         f.write(encrypted_data)
                     new_path = os.path.join(root, file + '.lock')
                     os.rename(file_path, new_path)
-            except Exception as e:
-                print(' [!] Error locking ' + file_path + ':', e)
+            except:
+                print(' [!] Error locking ' + file_path)
                     
     input('\n Files locked! Press <ENTER> to return...\n')
 
@@ -60,8 +60,8 @@ def _decrypt(path, _dir_path):
                          f.write(decrypted_data)
                     new_path = os.path.join(root, file[:-5])  # Remove '.lock'
                     os.rename(file_path, new_path)
-            except Exception as e:
-                print(' [!] Error unlocking ' + file_path + ':', e)
+            except:
+                print(' [!] Error unlocking ' + file_path)
             
     input('\n Files unlocked! Press <ENTER> to return...\n')
             
@@ -99,8 +99,8 @@ def main():
                 break
         except KeyboardInterrupt:
             break
-        except Exception as e:
-            print('\n Error:', e)
+        except:
+            pass
             
     sys.exit('\n\n Thank you for using WaiveFolder!\n')
     
